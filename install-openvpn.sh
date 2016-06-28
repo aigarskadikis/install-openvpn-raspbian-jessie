@@ -7,7 +7,7 @@
 #apt-get upgrade -y
 #apt-get install git -y
 #cd
-#git clone https://github.com/catonrug/install-openvpn-raspbian-jessie.git && cd install-openvpn-raspbian-jessie && chmod +x check.sh && ./check.sh
+#git clone https://github.com/catonrug/install-openvpn-raspbian-jessie.git && cd install-openvpn-raspbian-jessie && chmod +x install-openvpn.sh && ./install-openvpn.sh
 
 apt-get update -y
 apt-get upgrade -y
