@@ -60,8 +60,8 @@ sed "s/^.*DEFAULT_FORWARD_POLICY=\"DROP\"/DEFAULT_FORWARD_POLICY=\"ACCEPT\"/" /e
 sed -i "s/^.*DEFAULT_FORWARD_POLICY=\"DROP\"/DEFAULT_FORWARD_POLICY=\"ACCEPT\"/" /etc/default/ufw
 
 #insert some content before "Don't delete these required lines, otherwise there will be errors"
-sed "0,/^.*Don.*delete these required lines.*otherwise there will be errors$/s/^.*Don.*delete these required lines.*otherwise there will be errors$/# START OPENVPN RULES\n# NAT table rules\n*nat\n:POSTROUTING ACCEPT [0:0]\n# Allow traffic from OpenVPN client to eth0\n-A POSTROUTING -s 10\.8\.0\.0\/8 -o eth0 -j MASQUERADE\nCOMMIT\n# END OPENVPN RULES\n\n# Don\'t delete these required lines, otherwise there will be errors\n/" /etc/ufw/before.rules
 sed -i "0,/^.*Don.*delete these required lines.*otherwise there will be errors$/s/^.*Don.*delete these required lines.*otherwise there will be errors$/# START OPENVPN RULES\n# NAT table rules\n*nat\n:POSTROUTING ACCEPT [0:0]\n# Allow traffic from OpenVPN client to eth0\n-A POSTROUTING -s 10\.8\.0\.0\/8 -o eth0 -j MASQUERADE\nCOMMIT\n# END OPENVPN RULES\n\n# Don\'t delete these required lines, otherwise there will be errors\n/" /etc/ufw/before.rules
+cat /etc/ufw/before.rules
 
 #enable firewall
 echo y | ufw enable
@@ -80,3 +80,5 @@ sed -i "s/^export KEY_ORG=\"My Company Name\"/export KEY_ORG=\"My Company Name\"
 sed -i "s/^export KEY_EMAIL=\"sammy@example.com\"/export KEY_EMAIL=\"sammy@example.com\"/" /etc/openvpn/easy-rsa/vars
 sed -i "s/^export KEY_OU=\"MYOrganizationalUnit\"/export KEY_OU=\"MYOrganizationalUnit\"/" /etc/openvpn/easy-rsa/vars
 sed -i "s/^export KEY_NAME=\"EasyRSA\"/export KEY_NAME=\"server\"/" /etc/openvpn/easy-rsa/vars
+
+#time openssl dhparam -out /etc/openvpn/dh2048.pem 2048
