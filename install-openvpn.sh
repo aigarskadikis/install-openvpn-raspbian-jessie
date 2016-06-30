@@ -81,4 +81,4 @@ sed -i "s/^export KEY_EMAIL=\"sammy@example.com\"/export KEY_EMAIL=\"sammy@examp
 sed -i "s/^export KEY_OU=\"MYOrganizationalUnit\"/export KEY_OU=\"MYOrganizationalUnit\"/" /etc/openvpn/easy-rsa/vars
 sed -i "s/^export KEY_NAME=\"EasyRSA\"/export KEY_NAME=\"server\"/" /etc/openvpn/easy-rsa/vars
 
-#time openssl dhparam -out /etc/openvpn/dh2048.pem 2048
+#time openssl dhparam -out /etc/openvpn/dh2048.pem 2048 && vcgencmd measure_temp
